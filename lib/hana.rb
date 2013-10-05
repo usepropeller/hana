@@ -67,7 +67,7 @@ module Hana
 
     VALID = Hash[%w{ add move test replace remove copy }.map { |x| [x,x]}] # :nodoc:
 
-    def apply doc
+    def apply_to doc
       @is.each_with_object(doc) { |ins, d|
         send VALID.fetch(ins[OP].strip) { |k|
           raise Exception, "bad method `#{k}`"
